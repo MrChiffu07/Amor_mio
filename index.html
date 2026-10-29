@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Andrés &amp; Melanie 💖 Nuestra historia de amor</title>
+  <meta name="description" content="La historia de amor de Andrés y Melanie: nuestro tiempo juntos, nuestras fotos y nuestra canción.">
+  <meta name="theme-color" content="#c9184a">
+
+  <!-- Vista previa al compartir (WhatsApp, Facebook, Telegram...).
+       IMPORTANTE: al publicar la página, cambia "img/portada.jpg" y og:url por la dirección completa,
+       por ejemplo https://andres-y-melanie.netlify.app/img/portada.jpg (WhatsApp solo acepta URLs completas). -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Andrés &amp; Melanie">
+  <meta property="og:title" content="Andrés &amp; Melanie 💖">
+  <meta property="og:description" content="Juntos desde el 12 de septiembre de 2026. Abre tu regalo, mi amor ❤️">
+  <meta property="og:image" content="img/portada.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Andrés y Melanie juntos">
+  <meta property="og:url" content="">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Andrés &amp; Melanie 💖">
+  <meta name="twitter:description" content="Juntos desde el 12 de septiembre de 2026. Abre tu regalo, mi amor ❤️">
+  <meta name="twitter:image" content="img/portada.jpg">
+
+  <link rel="icon" type="image/png" href="img/icono.png">
+  <link rel="apple-touch-icon" href="img/icono.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bloqueado">
+
+  <!-- Pantalla de bienvenida: el primer mensaje -->
+  <div id="intro" class="intro d-flex align-items-center justify-content-center text-center">
+    <div class="intro-box">
+      <i class="bi bi-envelope-heart-fill intro-icon"></i>
+      <p class="text-uppercase tracking small mb-1">Un mensaje para ti</p>
+      <h1 class="script display-4 mb-3"><span class="n2"></span></h1>
+      <p id="mensajeIntro" class="intro-msg"></p>
+      <button id="btnEntrar" class="btn btn-love btn-lg mt-3 invisible">
+        <i class="bi bi-heart-fill"></i> Abrir mi regalo
+      </button>
+    </div>
+  </div>
+
+  <div id="hearts" aria-hidden="true"></div>
+
+  <!-- Música de fondo -->
+  <div id="musicBox" class="music-box">
+    <div class="d-flex justify-content-between align-items-center mb-1 px-1">
+      <small class="script fs-5">Nuestra canción 🎶</small>
+      <div>
+        <a id="musicaLink" target="_blank" rel="noopener" class="text-danger me-2" title="Abrir en YouTube"><i class="bi bi-box-arrow-up-right"></i></a>
+        <button id="cerrarMusica" class="btn-close btn-sm" aria-label="Ocultar reproductor"></button>
+      </div>
+    </div>
+    <div id="ytPlayer"></div>
+  </div>
+  <button id="btnMusica" class="music-btn" aria-label="Mostrar reproductor de música">
+    <i class="bi bi-youtube"></i>
+  </button>
+  <div id="musicaInfo" class="music-info"><i class="bi bi-vinyl-fill"></i> <span id="tituloCancion"></span></div>
+
+  <nav class="navbar navbar-expand-md fixed-top navbar-love">
+    <div class="container">
+      <a class="navbar-brand script" href="#inicio"><span class="n1"></span> &amp; <span class="n2"></span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Menú">
+        <i class="bi bi-list text-white fs-2"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#contador">Contador</a></li>
+          <li class="nav-item"><a class="nav-link" href="#fotos">Fotos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#razones">Razones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#luna">Luna</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carta">Carta</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="inicio" class="hero d-flex align-items-center justify-content-center text-center">
+    <div class="container" data-aos="zoom-in">
+      <p class="lead text-uppercase tracking">Nuestra historia de amor</p>
+      <h1 class="script couple-names">
+        <span class="n1"></span>
+        <i class="bi bi-heart-fill beat"></i>
+        <span class="n2"></span>
+      </h1>
+      <p class="fs-4" id="fechaTexto"></p>
+      <a href="#contador" class="btn btn-love btn-lg mt-3">Nuestro tiempo juntos <i class="bi bi-hourglass-split"></i></a>
+    </div>
+    <a href="#contador" class="scroll-down" aria-label="Bajar"><i class="bi bi-chevron-double-down"></i></a>
+  </header>
+
+  <section id="contador" class="py-5 section-soft">
+    <div class="container text-center">
+      <h2 class="script section-title" data-aos="fade-up"><span class="n1"></span> y <span class="n2"></span> llevan juntos</h2>
+      <div class="row g-3 justify-content-center mt-4">
+        <div class="col-6 col-md-2" data-aos="flip-left"><div class="count-card"><span id="c-meses">0</span><small>Meses</small></div></div>
+        <div class="col-6 col-md-2" data-aos="flip-left" data-aos-delay="80"><div class="count-card"><span id="c-dias">0</span><small>Días</small></div></div>
+        <div class="col-4 col-md-2" data-aos="flip-left" data-aos-delay="160"><div class="count-card"><span id="c-horas">0</span><small>Horas</small></div></div>
+        <div class="col-4 col-md-2" data-aos="flip-left" data-aos-delay="240"><div class="count-card"><span id="c-minutos">0</span><small>Minutos</small></div></div>
+        <div class="col-4 col-md-2" data-aos="flip-left" data-aos-delay="320"><div class="count-card"><span id="c-segundos">0</span><small>Segundos</small></div></div>
+      </div>
+      <p class="mt-4 fs-5" data-aos="fade-up">
+        En total: <strong id="totalDias">0</strong> días de amor 💕
+      </p>
+    </div>
+  </section>
+
+  <section id="fotos" class="py-5">
+    <div class="container">
+      <h2 class="script section-title text-center mb-2" data-aos="fade-up">Nuestros momentos</h2>
+      <p class="text-center hint mb-4"><i class="bi bi-hand-index"></i> Desliza las fotos con el dedo o usa las flechas <kbd>←</kbd> <kbd>→</kbd> del teclado</p>
+      <div id="carrusel" class="carousel slide carousel-fade love-carousel mx-auto" data-bs-ride="carousel" data-bs-interval="5000" data-bs-touch="true" data-bs-keyboard="true" tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Galería de fotos de Andrés y Melanie" data-aos="zoom-in">
+        <div class="carousel-indicators" id="carruselIndicadores"></div>
+        <div class="carousel-inner" id="carruselItems"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carrusel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span><span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carrusel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span><span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center gap-2 mt-4" id="miniaturas" role="group" aria-label="Elegir foto"></div>
+      <p class="visually-hidden" aria-live="polite" id="fotoActual"></p>
+    </div>
+  </section>
+
+  <section id="historia" class="py-5 section-soft">
+    <div class="container">
+      <h2 class="script section-title text-center mb-5" data-aos="fade-up">Nuestra historia</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <section id="razones" class="py-5">
+    <div class="container text-center">
+      <h2 class="script section-title mb-4" data-aos="fade-up">La razón de hoy</h2>
+      <div class="razon-dia mx-auto" data-aos="zoom-in">
+        <i class="bi bi-heart-arrow"></i>
+        <p class="razon-num mb-1">Razón <span id="razonNum">1</span> de <span id="razonTotal">100</span></p>
+        <p class="razon-texto" id="razonTexto" aria-live="polite"></p>
+        <p class="small mb-0" id="razonHoy">Cada día aparece una razón nueva 💌</p>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+        <button id="otraRazon" class="btn btn-love btn-lg"><i class="bi bi-shuffle"></i> Otra razón</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="luna" class="py-5 cielo">
+    <div class="estrellas" id="estrellas" aria-hidden="true"></div>
+    <span class="fugaz" aria-hidden="true"></span>
+    <div class="container position-relative text-center text-white">
+      <h2 class="script section-title text-white mb-2" data-aos="fade-up">Nuestra luna <i class="bi bi-moon-stars-fill"></i></h2>
+      <p class="lead mb-5 luna-frase" id="lunaFrase" data-aos="fade-up"></p>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-5" data-aos="fade-right">
+          <div class="luna-card">
+            <p class="luna-etiqueta">La luna del día en que empezamos</p>
+            <div class="luna-svg" id="lunaInicio" role="img"></div>
+            <h3 class="script luna-fase" id="faseInicio"></h3>
+            <p class="mb-0 small" id="detalleInicio"></p>
+          </div>
+        </div>
+        <div class="col-md-5" data-aos="fade-left">
+          <div class="luna-card">
+            <p class="luna-etiqueta">La luna de hoy</p>
+            <div class="luna-svg" id="lunaHoy" role="img"></div>
+            <h3 class="script luna-fase" id="faseHoy"></h3>
+            <p class="mb-0 small" id="detalleHoy"></p>
+          </div>
+        </div>
+      </div>
+      <p class="mt-5 mb-0 fs-5" id="lunaLlena" data-aos="fade-up"></p>
+    </div>
+  </section>
+
+  <section id="carta" class="py-5 section-soft">
+    <div class="petalos" id="petalos" aria-hidden="true"></div>
+    <div class="container position-relative">
+      <div class="letter mx-auto" data-aos="fade-up">
+        <h2 class="script text-center">Para <span class="n2"></span></h2>
+        <!-- Texto completo para lectores de pantalla; el visible se escribe letra por letra -->
+        <div id="cartaCompleta" class="visually-hidden"></div>
+        <div id="cartaTexto" aria-hidden="true"></div>
+        <p class="text-end script fs-3 mb-0 firma" id="cartaFirma">Con todo mi amor, <span class="n1"></span> 💌</p>
+        <div class="text-end">
+          <button id="cartaSaltar" class="btn btn-sm btn-link link-love">Mostrar todo <i class="bi bi-fast-forward-fill"></i></button>
+          <button id="cartaRepetir" class="btn btn-sm btn-link link-love d-none">Leer de nuevo <i class="bi bi-arrow-repeat"></i></button>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button id="btnSorpresa" class="btn btn-love btn-lg"><i class="bi bi-gift-fill"></i> Toca aquí</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-4 text-white footer-love">
+    <p class="script fs-2 mb-1"><span class="n1"></span> &amp; <span class="n2"></span></p>
+    <p class="mb-0 small">Juntos desde el <span id="fechaFooter"></span> <i class="bi bi-heart-fill"></i></p>
+  </footer>
+
+  <div class="modal fade" id="modalSorpresa" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4 modal-love">
+        <h3 class="script display-5">Te amo, <span class="n2"></span> 💖</h3>
+        <p class="fs-5" id="textoSorpresa"></p>
+        <button class="btn btn-love" data-bs-dismiss="modal">Yo también te amo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
